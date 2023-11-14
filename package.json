@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "cypress": "^13.5.0",
+    "cypress-iframe": "^1.0.1"
+  },
+  "scripts": {
+    "cypress:smoke-test": "cypress run --spec cypress/e2e/..."
+  }
+}
