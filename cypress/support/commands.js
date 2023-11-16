@@ -1,4 +1,6 @@
-import 'cypress-iframe';
+import 'cypress-iframe'
+import 'cypress-file-upload'
+import 'cypress-if'
 
 Cypress.Commands.add('getByName', (seletor) => {
     return cy.get(`[name=${seletor}]`)
@@ -6,6 +8,10 @@ Cypress.Commands.add('getByName', (seletor) => {
 
 Cypress.Commands.add('getByType', (seletor) => {
     return cy.get(`[type=${seletor}]`)
+})
+
+Cypress.Commands.add('getById', (seletor) => {
+    return cy.get(`#${seletor}`)
 })
 
 Cypress.Commands.add('login', (email, password) => {
@@ -29,23 +35,53 @@ Cypress.Commands.add('destinatarioExterno', (destinatario) => {
     cy.contains('button', 'Concluir').click()
 })
 
-Cypress.Commands.add('diex', () => {
+Cypress.Commands.add('redigirDocumentoEB', (seletor) => {
     cy.contains('span', 'Documentos').click()
     cy.contains('span', 'Redigir Documento').click()
     cy.contains('span', 'Documentos Comuns').click()
-    cy.contains('span', 'DIEx').click()
+    cy.contains('span', `${seletor}`).click()
 })
 
-Cypress.Commands.add('diexSimplificado', () => {
+Cypress.Commands.add('redigirDocumentoAdm', (seletor) => {
     cy.contains('span', 'Documentos').click()
     cy.contains('span', 'Redigir Documento').click()
-    cy.contains('span', 'Documentos Comuns').click()
-    cy.contains('span', 'DIEx Simplificado').click()
+    cy.contains('span', 'Documentos Adm').click()
+    cy.contains('span', `${seletor}`).click()
 })
 
-Cypress.Commands.add('', () => {
+Cypress.Commands.add('protocolarDocExterno', () => {
     cy.contains('span', 'Documentos').click()
-    cy.contains('span', 'Redigir Documento').click()
-    cy.contains('span', 'Documentos Comuns').click()
-    cy.contains('span', '').click()
+    cy.contains('span', 'Inserir Documentos/NUP').click()
+    cy.contains('span', 'Protocolar Doc. Ext.').click()
+})
+
+Cypress.Commands.add('assinaturaEletronica', (senha) => {
+    cy.contains('button', 'Assinar/Protocolar').click()
+    cy.get('p-radiobutton[label="Assinatura Eletrônica"]').click()
+    cy.get('.btnNovo').click()
+    cy.get('input[name="senhaEletronica"]').type(`${senha}`)
+    cy.contains('span', 'Confirmar').click()
+})
+
+Cypress.Commands.add('anexarDocumentoSped', (tipoDocumento) => {
+    cy.contains('button', 'Anexar documento do SPED').click()
+    cy.getByName('tipoDocumento').click().find(`li:contains("${tipoDocumento}")`).eq(0).click()
+    cy.contains('button', 'Pesquisar').click()
+    cy.contains('td', `${tipoDocumento}`).click()
+    cy.getById('adicionarDoc').click()
+    cy.getById('incluirDoc').click()
+    cy.contains('span', 'Descrição do Anexo')
+
+})
+
+Cypress.Commands.add('referenciarDocumentodoSped', () => {
+    cy.getById('btnAnexoReferencia').click()
+    cy.getById('pesquisar').click()
+    cy.contains('td', 'DIEx').click()
+    cy.getById('adicionarDoc').click()
+    cy.getById('incluirDoc').click()
+})
+
+Cypress.Commands.add('anexoExterno', (nomeAnexo) => {
+    cy.get('input[type="file"]').attachFile(`${nomeAnexo}`)
 })

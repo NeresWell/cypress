@@ -1,6 +1,8 @@
 {
   "devDependencies": {
     "cypress": "^13.5.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-if": "^1.10.5",
     "cypress-iframe": "^1.0.1"
   },
   "scripts": {
