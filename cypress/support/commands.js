@@ -55,6 +55,12 @@ Cypress.Commands.add('protocolarDocExterno', () => {
     cy.contains('span', 'Protocolar Doc. Ext.').click()
 })
 
+Cypress.Commands.add('DocExternoProtocolados', () => {
+    cy.contains('span', 'Documentos').click()
+    cy.contains('span', /^Caixa de Documentos$/).click()
+    cy.contains('span', 'Doc. Ext. Protocolados').click()
+})
+
 Cypress.Commands.add('assinaturaEletronica', (senha) => {
     cy.contains('button', 'Assinar/Protocolar').click()
     cy.get('p-radiobutton[label="Assinatura Eletrônica"]').click()
@@ -84,4 +90,9 @@ Cypress.Commands.add('referenciarDocumentodoSped', () => {
 
 Cypress.Commands.add('anexoExterno', (nomeAnexo) => {
     cy.get('input[type="file"]').attachFile(`${nomeAnexo}`)
+})
+
+Cypress.Commands.add('assertDocExternoProtocolado', (tipo) => {
+    cy.DocExternoProtocolados()
+    cy.get('td').find(`span:contains("${tipo} Cypress")`).should('be.visible')
 })

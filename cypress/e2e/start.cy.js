@@ -14,8 +14,6 @@ Cypress._.times(1, () => {
     const codigoTemporalidade = '001'
     const nomeAnexoExterno = 'example.json'
 
-    const tipoDeDocumento = []
-
     it('Expedir DIEx sem anexo', () => {
       cy.redigirDocumentoEB('DIEx')
       cy.destinatarioExterno(`${nomeDestinatarioExterno}`)
@@ -39,7 +37,7 @@ Cypress._.times(1, () => {
     })
 
     it('Expedir DIEx com anexo interno sendo DIEx Simplificado', () => {
-      
+
     })
 
     it('Expedir DIEx com anexo interno sendo Oficio', () => {
