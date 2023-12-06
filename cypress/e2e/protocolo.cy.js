@@ -9,7 +9,6 @@ Cypress._.times(1, () => {
             // npx cypress run -- browser edge
             // {browser: 'edge'},
             // npx cypress open --config viewportWidth=375,viewport Height=667
-
         })
 
         const codigoTemporalidade = '001'
@@ -142,7 +141,6 @@ Cypress._.times(1, () => {
                 cy.getById('tipoNupRadBtn2').click()
                 cy.getById('numero').type(`Cypress`)
                 cy.getById('omOrigem').type(`OM Automatizada`)
-    
                 cy.getById('tipoDocumento').click().find(`li:contains("${tipo}")`).eq(0).click()
                 cy.getById('assunto').type(`${tipo} Cypress`)
                 cy.getById('pesquisaRapidaTemporalidade').type(`${codigoTemporalidade}`)
