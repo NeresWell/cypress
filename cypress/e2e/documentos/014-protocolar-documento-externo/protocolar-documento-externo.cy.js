@@ -1,3 +1,5 @@
+import protocolarDocumentoExterno from '../../../support/pageObjects/protocolar-documento-externo.pageObject'
+
 Cypress._.times(1, () => {
     describe('Expediçao do SPED 3.0 para SPED 3.0', () => {
         beforeEach(() => {
@@ -139,7 +141,7 @@ Cypress._.times(1, () => {
             it(`Protocolar ${tipo} Externo`, () => {
                 cy.protocolarDocExterno()
                 cy.getById('tipoNupRadBtn2').click()
-                cy.getById('numero').type(`Cypress`)
+                protocolarDocumentoExternoPageObject.inputText(`Cypress`)
                 cy.getById('omOrigem').type(`OM Automatizada`)
                 cy.getById('tipoDocumento').click().find(`li:contains("${tipo}")`).eq(0).click()
                 cy.getById('assunto').type(`${tipo} Cypress`)
@@ -149,6 +151,11 @@ Cypress._.times(1, () => {
                 cy.reload()
                 cy.assertDocExternoProtocolado(tipo)
             })
+        })
+
+        it.only('teste', () => {
+            cy.protocolarDocExterno()
+            protocolarDocumentoExterno.inputText(`Cypress`)
         })
     })
 })
