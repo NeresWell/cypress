@@ -2,7 +2,7 @@ const el = require('../elements/documentos/protocolar-documento-externo.elements
 
 class ProtocolarDocumentoExterno {
 
-    inputText(arg){
+    inputNumero(arg){
         cy.get(el.ELEMENTS.inputNumero).type(arg)
     }
 }

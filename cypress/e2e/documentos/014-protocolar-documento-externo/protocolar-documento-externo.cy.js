@@ -1,4 +1,4 @@
-import protocolarDocumentoExterno from '../../../support/pageObjects/protocolar-documento-externo.pageObject'
+import ProtocolarDocumentoExterno from '../../../support/pageObjects/protocolar-documento-externo.pageObject'
 
 Cypress._.times(1, () => {
     describe('Expediçao do SPED 3.0 para SPED 3.0', () => {
@@ -141,7 +141,7 @@ Cypress._.times(1, () => {
             it(`Protocolar ${tipo} Externo`, () => {
                 cy.protocolarDocExterno()
                 cy.getById('tipoNupRadBtn2').click()
-                protocolarDocumentoExternoPageObject.inputText(`Cypress`)
+                ProtocolarDocumentoExterno.inputNumero(`Cypress`)
                 cy.getById('omOrigem').type(`OM Automatizada`)
                 cy.getById('tipoDocumento').click().find(`li:contains("${tipo}")`).eq(0).click()
                 cy.getById('assunto').type(`${tipo} Cypress`)
@@ -153,9 +153,20 @@ Cypress._.times(1, () => {
             })
         })
 
-        it.only('teste', () => {
+        it('teste', () => {
             cy.protocolarDocExterno()
-            protocolarDocumentoExterno.inputText(`Cypress`)
+            ProtocolarDocumentoExterno.inputNumero(`Cypress`)
+        })
+
+        it.only('teste', () => {
+            cy.get('h4').then((h4) => {
+                if(h4.text().includes('Protocolista')){
+                    cy.protocolarDocExterno()
+                    ProtocolarDocumentoExterno.inputNumero(`Cypress`)
+                } else {
+                    cy.get('#contasUsuario').click()
+                }
+            })            
         })
     })
 })
