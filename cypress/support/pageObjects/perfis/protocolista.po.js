@@ -1,4 +1,4 @@
-const el = require('../elements/perfis/protocolista.elements')
+const el = require('/git projects/cypress/cypress/support/elements/perfis/protocolista.elements')
 
 class Protocolista {
 

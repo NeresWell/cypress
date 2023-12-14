@@ -1,4 +1,6 @@
 import ProtocolarDocumentoExterno from '../../../support/pageObjects/protocolar-documento-externo.pageObject'
+import Protocolista from '/git projects/cypress/cypress/support/pageObjects/perfis/protocolista.po'
+import Perfil from '/git projects/cypress/cypress/support/pageObjects/perfis/perfil.po'
 
 Cypress._.times(1, () => {
     describe('Expediçao do SPED 3.0 para SPED 3.0', () => {
@@ -159,14 +161,7 @@ Cypress._.times(1, () => {
         })
 
         it.only('teste', () => {
-            cy.get('h4').then((h4) => {
-                if(h4.text().includes('Protocolista')){
-                    cy.protocolarDocExterno()
-                    ProtocolarDocumentoExterno.inputNumero(`Cypress`)
-                } else {
-                    cy.get('#contasUsuario').click()
-                }
-            })            
+            Perfil.setPerfil('Admin')
         })
     })
 })
