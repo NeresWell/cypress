@@ -1,6 +1,7 @@
 import ProtocolarDocumentoExterno from '../../../support/pageObjects/protocolar-documento-externo.pageObject'
 import Protocolista from '/git projects/cypress/cypress/support/pageObjects/perfis/protocolista.po'
 import Perfil from '/git projects/cypress/cypress/support/pageObjects/perfis/perfil.po'
+import Util from '../../../support/pageObjects/utils/utils.po'
 
 Cypress._.times(1, () => {
     describe('Expediçao do SPED 3.0 para SPED 3.0', () => {
@@ -141,27 +142,19 @@ Cypress._.times(1, () => {
 
         tipoDeDocumento.forEach(tipo => {
             it(`Protocolar ${tipo} Externo`, () => {
+                Perfil.setPerfil('Protocolista')
                 cy.protocolarDocExterno()
-                cy.getById('tipoNupRadBtn2').click()
-                ProtocolarDocumentoExterno.inputNumero(`Cypress`)
-                cy.getById('omOrigem').type(`OM Automatizada`)
-                cy.getById('tipoDocumento').click().find(`li:contains("${tipo}")`).eq(0).click()
-                cy.getById('assunto').type(`${tipo} Cypress`)
-                cy.getById('pesquisaRapidaTemporalidade').type(`${codigoTemporalidade}`)
-                cy.anexoExterno(`${nomeAnexoExterno}`)
-                cy.contains('button', 'Salvar').click()
-                cy.reload()
+                ProtocolarDocumentoExterno.nupAutomatico()
+                ProtocolarDocumentoExterno.numeroDocumento(`Cypress`)
+                ProtocolarDocumentoExterno.orgaoOrigem(`OM Automatizada`)
+                ProtocolarDocumentoExterno.tipoDocumento(tipo)
+                ProtocolarDocumentoExterno.assunto(tipo)
+                ProtocolarDocumentoExterno.temporalidade(codigoTemporalidade)
+                cy.anexoExterno(nomeAnexoExterno)
+                Util.salvarDocumento()
+                Util.paginaInicial()
                 cy.assertDocExternoProtocolado(tipo)
             })
-        })
-
-        it('teste', () => {
-            cy.protocolarDocExterno()
-            ProtocolarDocumentoExterno.inputNumero(`Cypress`)
-        })
-
-        it.only('teste', () => {
-            Perfil.setPerfil('Admin')
         })
     })
 })
