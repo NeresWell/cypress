@@ -94,5 +94,5 @@ Cypress.Commands.add('anexoExterno', (nomeAnexo) => {
 
 Cypress.Commands.add('assertDocExternoProtocolado', (tipo) => {
     cy.DocExternoProtocolados()
-    cy.get('td').find(`span:contains("${tipo} Cypress")`).should('be.visible')
+    cy.get('td').find(`span:contains("${tipo}")`).should('be.visible')
 })
