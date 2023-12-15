@@ -1,4 +1,4 @@
-const elPerfil = require('/git projects/cypress/cypress/support/elements/perfis/perfil.elements')
+const elPerfil = require('../../../support/elements/perfis/perfil.elements')
 
 class Perfil {
     setPerfil(tipoPerfil){

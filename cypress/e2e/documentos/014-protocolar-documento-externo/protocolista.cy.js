@@ -1,6 +1,5 @@
-import ProtocolarDocumentoExterno from '../../../support/pageObjects/protocolar-documento-externo.pageObject'
-import Protocolista from '/git projects/cypress/cypress/support/pageObjects/perfis/protocolista.po'
-import Perfil from '/git projects/cypress/cypress/support/pageObjects/perfis/perfil.po'
+import ProtocolarDocumentoExterno from '../../../support/pageObjects/perfis/protocolista.po'
+import Perfil from '../../../support/pageObjects/perfis/perfil.po'
 import Util from '../../../support/pageObjects/utils/utils.po'
 
 Cypress._.times(1, () => {
@@ -148,6 +147,7 @@ Cypress._.times(1, () => {
                 ProtocolarDocumentoExterno.numeroDocumento(`Cypress`)
                 ProtocolarDocumentoExterno.orgaoOrigem(`OM Automatizada`)
                 ProtocolarDocumentoExterno.tipoDocumento(tipo)
+                ProtocolarDocumentoExterno.prioridade('Urgente')
                 ProtocolarDocumentoExterno.assunto(tipo)
                 ProtocolarDocumentoExterno.temporalidade(codigoTemporalidade)
                 cy.anexoExterno(nomeAnexoExterno)
@@ -155,6 +155,10 @@ Cypress._.times(1, () => {
                 Util.paginaInicial()
                 cy.assertDocExternoProtocolado(tipo)
             })
+        })
+
+        it('Listar Documento Externo Protocolado', () => {
+            cy.assertDocExternoProtocolado('DIEx')
         })
     })
 })
