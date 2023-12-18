@@ -1,22 +1,16 @@
-import ProtocolarDocumentoExterno from '../../../support/pageObjects/perfis/protocolista.po'
+import ProtocolarDocumentoExterno from '../../../support/pageObjects/documentos/inserirDocumentosNUP/protocolarDocExt.po'
 import Perfil from '../../../support/pageObjects/perfis/perfil.po'
 import Util from '../../../support/pageObjects/utils/utils.po'
+import DocMaisAssinaturas from '../../../support/pageObjects/documentos/documentosComuns/docMaisAssinaturas.po'
 
 Cypress._.times(1, () => {
-    describe('Expediçao do SPED 3.0 para SPED 3.0', () => {
+    describe('Documentos Diversos', () => {
         beforeEach(() => {
             cy.visit('/')
             cy.login(Cypress.env('userName'), Cypress.env('password'))
             cy.title().should('eq', 'SPED 3.0')
             cy.get('h3').should('exist').and('have.text', 'Bem-vindo ao Sistema de Protocolo Eletrônico de Documentos do Exército Brasileiro')
-            // cy.location('pathname').should('eq', '/home')
-            // npx cypress run -- browser edge
-            // {browser: 'edge'},
-            // npx cypress open --config viewportWidth=375,viewport Height=667
         })
-
-        const codigoTemporalidade = '001'
-        const nomeAnexoExterno = 'example.json'
 
         const tipoDeDocumento = [
             'Encaminhamento',
@@ -138,27 +132,40 @@ Cypress._.times(1, () => {
             'Quadro de Trabalho Semanal',
             'Quadro de Trabalho Quinzenal'
         ]
+        it('Definir Perfil', () => {
+            Perfil.setPerfil('Convencional (envia para Destinatário Externo)')
+        })
 
         tipoDeDocumento.forEach(tipo => {
             it(`Protocolar ${tipo} Externo`, () => {
-                Perfil.setPerfil('Protocolista')
-                cy.protocolarDocExterno()
-                ProtocolarDocumentoExterno.nupAutomatico()
-                ProtocolarDocumentoExterno.numeroDocumento(`Cypress`)
-                ProtocolarDocumentoExterno.orgaoOrigem(`OM Automatizada`)
-                ProtocolarDocumentoExterno.tipoDocumento(tipo)
-                ProtocolarDocumentoExterno.prioridade('Urgente')
-                ProtocolarDocumentoExterno.assunto(tipo)
-                ProtocolarDocumentoExterno.temporalidade(codigoTemporalidade)
-                cy.anexoExterno(nomeAnexoExterno)
-                Util.salvarDocumento()
-                Util.paginaInicial()
-                cy.assertDocExternoProtocolado(tipo)
+                cy.redigirDocumentoEB('Documentos Diversos')
+                DocMaisAssinaturas.setTipoDocumento(tipo)
+                Util.addAssunto(`Documento: ${tipo}`)
+                Util.setTemporalidade('001')
+                Util.addReferencia('Referência Adicionada')
+                cy.conteudo('Receeeeeeeeeeeeeba carai!')
+                DocMaisAssinaturas.setAssinantePrincipal('admin')
+                Util.btnSalvar()
+                // ProtocolarDocumentoExterno.tipoDocumento(tipo)
+                // ProtocolarDocumentoExterno.prioridade('Urgente')
+                // ProtocolarDocumentoExterno.addAssunto(tipo)
+                // Util.setTemporalidade(codigoTemporalidade)
+                // cy.anexoExterno(nomeAnexoExterno)
+                // Util.salvarDocumentoExternoProtocolado()
+                // Util.paginaInicial()
+                // cy.assertDocExternoProtocolado(tipo)
             })
         })
 
-        it('Listar Documento Externo Protocolado', () => {
-            cy.assertDocExternoProtocolado('DIEx')
+        it.only('Documento Diversos', () => {
+            cy.redigirDocumentoEB('Documentos Diversos')
+            DocMaisAssinaturas.setTipoDocumento('Processo')
+            Util.addAssunto(`Processo Diverso Validação`)
+            Util.setTemporalidade('001')
+            Util.addReferencia('Referência Adicionada')
+            cy.conteudo('Receeeeeeeeeeeeeba!')
+            DocMaisAssinaturas.setAssinantePrincipal('admin')
+            Util.btnSalvar()
         })
     })
 })

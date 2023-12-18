@@ -1,6 +1,9 @@
-const el = require('../../../support/elements/perfis/protocolista.elements')
+const el = require('../../../elements/documentos/inserirDocumentosNUP/protocolarDocExt.elements')
 
 class ProtocolarDocumentoExterno {
+    addAssunto(assunto) {
+        cy.get(el.ELEMENTS.assunto).type(assunto)
+    }
 
     numeroDocumento(arg){
         cy.get(el.ELEMENTS.inputNumero).type(arg)
@@ -26,16 +29,10 @@ class ProtocolarDocumentoExterno {
         cy.get(el.ELEMENTS.tipoDocumento).click().find(`li:contains("${tipo}")`).eq(0).click()
     }
 
-    assunto(assunto) {
-        cy.get(el.ELEMENTS.assunto).type(assunto)
-    }
-
     prioridade(nivelPrioridade) {
-        cy.get(el.ELEMENTS.prioridade).should('have.text', `${nivelPrioridade}`)
-    }
+        cy.get(el.ELEMENTS.prioridade).click()
+        cy.contains('span', `${nivelPrioridade}`).click()
 
-    temporalidade(codigoTemporalidade) {
-        cy.get(el.ELEMENTS.temporalidade).type(codigoTemporalidade)
     }
 }
 

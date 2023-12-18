@@ -1,4 +1,5 @@
 export const ELEMENTS = {
+    assunto: 'textarea[id="assunto"]',
     inputNumero: 'input[id="numero"]',
     semNUP: 'p-radiobutton[id="tipoNupRadBtn1"]',
     nupAutomatico: 'p-radiobutton[id="tipoNupRadBtn2"]',
@@ -6,8 +7,6 @@ export const ELEMENTS = {
     inputOrgaoOrigem: 'input[id="omOrigem"]',
     tipoDocumento: 'p-dropdown[id="tipoDocumento"]',
     prioridade: 'p-dropdown[id="prioridade"]',
-    assunto: 'textarea[id="assunto"]',
-    temporalidade: 'p-dropdown[id="pesquisaRapidaTemporalidade"]',
 }
 
 export const FILTROS = {
