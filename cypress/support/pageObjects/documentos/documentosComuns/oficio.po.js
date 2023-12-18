@@ -19,6 +19,17 @@ class Oficio {
     setRemetente(remetente) {
         cy.get(el.ELEMENTS.setRemetente).click()
     }
+    setInfoDestExterno(formaTratamentoDestinatario, postoDestinatario, nomeDestinatario, cargoDestinatario, omDestinatario, enderecoDestinatario, cepDestinatario, cidadeDestinatario, estadoDestinatario) {
+        cy.get(el.ELEMENTS.formaTratamentoDestinatario).type(formaTratamentoDestinatario)
+        cy.get(el.ELEMENTS.postoDestinatario).type(postoDestinatario)
+        cy.get(el.ELEMENTS.nomeDestinatario).type(nomeDestinatario)
+        cy.get(el.ELEMENTS.cargoDestinatario).type(cargoDestinatario)
+        cy.get(el.ELEMENTS.omDestinatario).type(omDestinatario)
+        cy.get(el.ELEMENTS.enderecoDestinatario).type(enderecoDestinatario)
+        cy.get(el.ELEMENTS.cepDestinatario).type(cepDestinatario)
+        cy.get(el.ELEMENTS.cidadeDestinatario).type(cidadeDestinatario)
+        cy.get(el.ELEMENTS.estadoDestinatario).type(estadoDestinatario)
+    }
 }
 
 export default new Oficio();

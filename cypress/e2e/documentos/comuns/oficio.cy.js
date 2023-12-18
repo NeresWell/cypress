@@ -15,7 +15,7 @@ Cypress._.times(1, () => {
             Perfil.setPerfil('Convencional (envia para Destinatário Externo)')
         })
 
-        it('Redigir Oficio', () => {
+        it('Redigir Oficio com Destinatário Externo Cadastrado', () => {
             cy.redigirDocumentoEB('Ofício')
             Util.urgencia('Urgentíssimo')
             Util.setDestinatario('Órgão')
@@ -27,6 +27,22 @@ Cypress._.times(1, () => {
             // Oficio.oficioNoImpedimento('Convencional')
             Oficio.setRemetente('Convencional')
             Util.btnSalvar()
+        })
+        it.only('Redigir Oficio com Destinatário Externo não Cadastrado', () => {
+            cy.redigirDocumentoEB('Ofício')
+            Util.urgencia('Urgentíssimo')
+            Oficio.setInfoDestExterno('Sr', 'Mar Ar', 'Nome Destinatário', 'Cargo Destinatário', 'OM Destinatário', 'End Dest Ext OM', '00000/000','Cidade Destinatário', 'Estado Destinatário')
+            Oficio.addAssunto('Ofício Validação')
+            Util.setTemporalidade('001')
+            Oficio.addVocativo('Vocativo')
+            cy.conteudo('Receeeeeeeeeeeeeba!')
+            Oficio.addFechoCortesiaOficio('Fecho de Cortesia')
+            // Oficio.oficioNoImpedimento('Convencional')
+            // Oficio.setRemetente('Convencional')
+            Util.btnSalvar()
+            Util.btnFechar()
+            cy.wait(2000)
+            Util.btnAnexoDetalhesDocumento()
         })
     })
 })

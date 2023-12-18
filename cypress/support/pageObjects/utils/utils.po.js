@@ -82,6 +82,12 @@ class Util {
         cy.contains('li', `${conta}`).click()
         cy.get(el.ELEMENTS.btnImpedimento).should('not.be.checked')
     }
+    btnFechar() {
+        cy.get(el.ELEMENTS.btnFechar).should('be.visible').click()
+    }
+    btnAnexoDetalhesDocumento() {
+        cy.get(el.ELEMENTS.btnAnexo).click()
+    }
 }
 
 export default new Util();
