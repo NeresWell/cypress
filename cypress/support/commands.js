@@ -15,8 +15,8 @@ Cypress.Commands.add('getById', (seletor) => {
 })
 
 Cypress.Commands.add('login', (email, password) => {
-    cy.getByName('login').type(email)
-    cy.getByType('password').type(password)
+    cy.getByName('login').type(email, { log: false })
+    cy.getByType('password').type(password, { log: false })
     cy.contains('button', 'Entrar').click()
 })
 

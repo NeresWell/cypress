@@ -25,7 +25,7 @@ class Util {
         cy.get(el.ELEMENTS.btnConcluir).click()
     }
     addAssunto(assunto) {
-        cy.get(el.ELEMENTS.assunto).type(assunto)
+        cy.get(el.ELEMENTS.assunto).should('be.visible').type(assunto, {delay: 0}).should('have.value', `${assunto}`)
     }
     setTemporalidade(codigoTemporalidade) {
         cy.get(el.ELEMENTS.temporalidade).type(codigoTemporalidade)

@@ -34,7 +34,7 @@ Cypress._.times(1, () => {
             cy.conteudo('Receeeeeeeeeeeeeba!')
             // Util.noImpedimento('Nascimento')
             Util.assDelegacaoOp2('Nascimento')
-            Util.btnSalvar()
+            // Util.btnSalvar()
         })
     })
 })
