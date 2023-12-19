@@ -9,6 +9,7 @@ export const ELEMENTS = {
     sexoRemetente: 'p-dropdown[id="sexoRemetente"]', // ok
     sexoDestinatario: 'p-dropdown[id="sexoDestinatario"]', // ok
     urgencia: 'p-checkbox[id="urgente"]', // ok
+    idDestinatario0: 'input[id="idDestinatario0"]',
     nivelUrgencia: 'p-dropdown[id="nbUrgenteDrop"]', // ok
     btnReferenciarDocumentoSped: 'button[id="btnAnexoReferencia"]', // ok
     btnAnexarDocumentoSped: 'button[id="btnAnexarDocSped"]', // ok
@@ -31,6 +32,7 @@ export const ELEMENTS = {
     btnImprimir: 'button[id="btnImprimir"]',
     btnClonarCopiar: 'button[id="btnCopiarClonar"]',
     btnAssinarProtocolar: 'button[id="btnAssinarProtocolar"]',
+    msgSalvar: 'span[class="ui-growl-title"]',
     
 //  Detalhes do Documento
     btnPDFDocumentoPrincipal: 'div[id="pdfAssinatura"]',

@@ -6,11 +6,11 @@ class Util {
         cy.contains('li', `${remetente}`).dblclick()
     }
     setSexoRemetente(sexo){
-        cy.get(el.ELEMENTS.sexoRemetente).click()
+        cy.get(el.ELEMENTS.sexoRemetente).click().should('have.length', 1)
         cy.contains('li', `${sexo}`).click()
     }
     setSexoDestinatario(sexo) {
-        cy.get(el.ELEMENTS.sexoDestinatario).click()
+        cy.get(el.ELEMENTS.sexoDestinatario).click().should('have.length', 1)
         cy.contains('li', `${sexo}`).click()
     }
     setDestinatario(destinatario) {
@@ -18,6 +18,8 @@ class Util {
         cy.contains('li', `${destinatario}`).dblclick()
         cy.get(el.ELEMENTS.btnConcluir).click()
         cy.get(el.ELEMENTS.setDestinatarioExterno).should('not.exist')
+        cy.get(el.ELEMENTS.idDestinatario0).should('be.visible')
+        cy.get(el.ELEMENTS.btnDestinatarioExterno).should('not.be.enabled')
     }
     setDestinatarioExterno(destinatarioExterno) {
         cy.get(el.ELEMENTS.btnDestinatarioExterno).click()
@@ -31,7 +33,7 @@ class Util {
         cy.get(el.ELEMENTS.temporalidade).type(codigoTemporalidade)
     }
     btnSalvar() {
-        cy.get(el.ELEMENTS.salvar).eq(0).click()
+        cy.get(el.ELEMENTS.salvar).eq(0).click().should('be.visible')
     }
     salvarDocumentoExternoProtocolado() {
         cy.get(el.ELEMENTS.salvar).eq(1).click()
@@ -40,7 +42,7 @@ class Util {
         cy.contains('span', 'Página Inicial').click()
     }
     urgencia(nivelPrioridade) {
-        cy.get(el.ELEMENTS.urgencia).click()
+        cy.get(el.ELEMENTS.urgencia).click().should('be.visible')
         cy.get(el.ELEMENTS.nivelUrgencia).click()
         cy.contains('span', `${nivelPrioridade}`).click()
     }
@@ -87,6 +89,12 @@ class Util {
     }
     btnAnexoDetalhesDocumento() {
         cy.get(el.ELEMENTS.btnAnexo).click()
+    }
+    verificaMsgSalvarDocumento() {
+        cy.get(el.ELEMENTS.msgSalvar).should('be.visible')
+        cy.clock()
+        cy.tick(2000)
+        cy.get(el.ELEMENTS.msgSalvar).should('not.be.visible')
     }
 }
 
