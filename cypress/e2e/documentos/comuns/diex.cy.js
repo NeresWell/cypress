@@ -18,7 +18,7 @@ Cypress._.times(1, () => {
             Perfil.setPerfil('Convencional (envia para Destinatário Externo)')
         })
 
-        it.only('Redigir DIEx', () => {
+        it('Redigir DIEx', () => {
             cy.redigirDocumentoEB('DIEx')
             Util.urgencia('Urgentíssimo')
             Util.setSexoRemetente('Da')
