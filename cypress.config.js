@@ -5,12 +5,7 @@ module.exports = defineConfig({
 
     experimentalStudio: true,
 
-    baseUrl: "http://10.166.74.39",
-    env: {
-      userName: "admin",
-      password: "sigadex123",
-      assinaturaEletronica: "sigadex1234",
-    }
+    baseUrl: "http://10.166.74.39"
   },
   // web browser page size and time-out
   pageLoadTimeout: 60000,

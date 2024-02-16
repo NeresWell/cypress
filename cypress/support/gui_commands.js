@@ -2,6 +2,25 @@ import 'cypress-iframe'
 import 'cypress-file-upload'
 import 'cypress-if'
 
+Cypress.Commands.add('login', (
+    user = Cypress.env('user_name'),
+    password = Cypress.env('user_password'),
+  ) => {
+    const login = () => {
+      cy.visit('/#/login')
+  
+      cy.get("[name='login']").type(user)
+      cy.get("[type='password']").type(password, { log: false })
+      cy.get("[id='entrar']").click()
+    }
+    login()
+})
+
+Cypress.Commands.add('logout', () => {
+    cy.contains('i', 'settings').click()
+    cy.contains('span', 'Sair').click()
+})
+
 Cypress.Commands.add('getByName', (seletor) => {
     return cy.get(`[name=${seletor}]`)
 })
@@ -12,12 +31,6 @@ Cypress.Commands.add('getByType', (seletor) => {
 
 Cypress.Commands.add('getById', (seletor) => {
     return cy.get(`#${seletor}`)
-})
-
-Cypress.Commands.add('login', (email, password) => {
-    cy.getByName('login').type(email, { log: false })
-    cy.getByType('password').type(password, { log: false })
-    cy.contains('button', 'Entrar').click()
 })
 
 Cypress.Commands.add('verificaTexto', (seletor, texto) => {
