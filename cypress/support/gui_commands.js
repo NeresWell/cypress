@@ -16,6 +16,36 @@ Cypress.Commands.add('login', (
     login()
 })
 
+// Cypress.Commands.add('login', (
+//     user = Cypress.env('user_name'),
+//     password = Cypress.env('user_password'),
+//     { cacheSession = true} = {},
+//   ) => {
+//     const login = () => {
+//       cy.visit('/#/login')
+  
+//       cy.get("[name='login']").type(user)
+//       cy.get("[type='password']").type(password, { log: false })
+//       cy.get("[id='entrar']").click()
+//     }
+
+//     const validate = () => {
+//         cy.visit('/')
+//         cy.location('pathname', {timeout: 1000}).should('not.eq', '/#/login')
+//     }
+
+//     const options = {
+//         cacheAcrossSpecs: true,
+//         validate,
+//     }
+
+//     if(cacheSession) {
+//         cy.session(user, login, options)
+//     } else {
+//         login()
+//     }
+// })
+
 Cypress.Commands.add('logout', () => {
     cy.contains('i', 'settings').click()
     cy.contains('span', 'Sair').click()

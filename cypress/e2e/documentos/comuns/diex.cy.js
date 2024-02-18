@@ -5,7 +5,7 @@ Cypress._.times(1, () => {
     describe('Redigir DIEx', () => {
         beforeEach(() => {
             cy.visit('/')
-            cy.login(Cypress.env('userName'), Cypress.env('password'))
+            cy.login()
             cy.title().should('eq', 'SPED 3.0')
             cy.get('h3').should('exist').and('have.text', 'Bem-vindo ao Sistema de Protocolo Eletrônico de Documentos do Exército Brasileiro')
             // cy.location('pathname').should('eq', '/home')

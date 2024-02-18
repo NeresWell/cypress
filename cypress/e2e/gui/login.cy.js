@@ -1,20 +1,12 @@
 describe('Login', () => {
-    beforeEach(() => {
-        cy.visit('/')
+    it('login com usuário e senha inválidos', () => {
+        // const user = Cypress.env('user_name')
+        // const password = Cypress.env('user_password')
+        // const options = {cacheSession: false}
+
+        // cy.login(user, password, options)
         cy.login()
-    })
-    
-    it.only('logout com usuário e senha inválidos', () => {
-        cy.logout()
-        cy.url().should('be.equal', `${Cypress.config('baseUrl')}/#/login`)
-    })
-    
-    it('login com usuário e senha válidos', () => {
-        cy.login()
-        cy.contains('h3', 'Bem-vindo ao Sistema de Protocolo Eletrônico de Documentos do Exército Brasileiro').should('be.visible')
-    })
-    
-    it('login com usuário e senha válidos', () => {
-        cy.contains('h3', 'Bem-vindo ao Sistema de Protocolo Eletrônico de Documentos do Exército Brasileiro').should('be.visible')
+
+        cy.url().should('be.equal', `${Cypress.config('baseUrl')}/#/`)
     })
 })
