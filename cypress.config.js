@@ -2,10 +2,8 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-
+    baseUrl: "http://10.166.74.39",
     experimentalStudio: true,
-
-    baseUrl: "http://10.166.74.39"
   },
   // web browser page size and time-out
   pageLoadTimeout: 60000,
