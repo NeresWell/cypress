@@ -3,8 +3,8 @@ import 'cypress-file-upload'
 import 'cypress-if'
 
 Cypress.Commands.add('login', (
-    user = Cypress.env('user_name'),
-    password = Cypress.env('user_password'),
+    user = Cypress.env('sped_user_name'),
+    password = Cypress.env('sped_user_password'),
   ) => {
     const login = () => {
       cy.visit('/#/login')

@@ -10,6 +10,7 @@ const locators = {
     PAGINA_INICIAL: {
         CAMPOS: {
             MSG_BEM_VINDO: '[class="mensagemBemVindo"]',
+            AJUDA_SPED: '[href="http://sigadex.eb.mil.br"] > div',
             CONTA: {
                 BNT: '[class="material-icons"]',
                 ITENS: {
@@ -60,8 +61,45 @@ const locators = {
             LISTAR_CONTAS: '[href="#/manter-conta"] > div',
             LISTAR_SECOES: '[href="#/manter-secao"] > div',
             LISTAR_USUARIOS: '[href="#/manter-pessoa"] > div',
-        }
+        },
     },
+
+    UTIL: {
+        MINUTA_DOCUMENTO: {
+            BTN_FECHAR: '[id="btnFechar"]',
+            BTN_DESPACHAR_ENCAMINHAR: '[id="btnDespacharEncaminhar"]',
+            BTN_EDITAR: '[id="btnEditar"]',
+            BTN_IMPRIMIR: '[id="btnImprimir"]',
+            BTN_CLONAR: '[id="btnCopiarClonar"]',
+            BTN_ASSINAR: '[id="btnAssinarProtocolar"]',
+            MSG_MINUTA: '[class="ui-growl-title"]',
+        },
+        DETALHES_DOCUMENTO: {
+            BTN_HISTORICO: '[id="btnVerHistorico"]',
+        },
+        TIPO_ASSINATURA: {
+            ELETRONICA: '[label="Assinatura Eletrônica"]',
+            DIGITAL: '[label="Assinatura Digital"]',
+            CHECKBOX_ENCAMINHAR: '[class="ui-chkbox ui-widget"]',
+            BTN_CANCELAR: 'p-footer button[class*="btnCancelar "]',
+            BTN_ASSINAR: 'p-footer button[class*="btnNovo "]',
+            SENHA: '[name="senhaEletronica"]',
+        },
+    },
+
+    MENU_CAIXA: {
+        DOCUMENTO: {
+            CAIXA_ENTRADA: {
+                MOVER_PARA: 'p-dropdown[inputid="assunto"]',
+                BTN_ENVIAR: 'p-button[label="Enviar"]',
+                DOC_PRAZO_TRAMITACAO: 'p-button[class="txt-mover-para"]',
+                VENCENDO_HJ: 'p-button[class="txt-status-lido"]',
+                BTN_ASSINAR: 'button[name="btnAssinarProtocolar"]',
+                BTN_ARQUIVAR: 'button[name="btnArquivar"]',
+            },
+        },
+    },
+
     DOCUMENTO: {
         DOCUMENTO_COMUM: {
             DIEX: {

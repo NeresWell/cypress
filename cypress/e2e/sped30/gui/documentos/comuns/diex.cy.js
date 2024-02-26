@@ -1,5 +1,7 @@
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
+import locators from '../../../../../support/locators'
+import Perfil from '../../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../../support/pageObjects/utils/utils.po'
+import { faker } from '@faker-js/faker'
 
 Cypress._.times(1, () => {
     describe('Redigir DIEx', () => {

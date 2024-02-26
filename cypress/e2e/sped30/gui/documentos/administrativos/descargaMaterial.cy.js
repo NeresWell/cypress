@@ -1,6 +1,6 @@
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
-import DescargaMateriais from '../../../support/pageObjects/documentos/documentosAdm/material.po'
+import Perfil from '../../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../../support/pageObjects/utils/utils.po'
+import DescargaMateriais from '../../../../../support/pageObjects/documentos/documentosAdm/material.po'
 
 Cypress._.times(1, () => {
     describe('Redigir Descarga de Materiais', () => {
@@ -21,8 +21,8 @@ Cypress._.times(1, () => {
             DescargaMateriais.addMaterial('Especificação','Duração','10','15','Observação')
             Util.setTemporalidade('001')
             DescargaMateriais.setNrParecer('001')
-            DescargaMateriais.setRemetente('admin')
-            DescargaMateriais.setDestinatario('Pedro Elias')
+            DescargaMateriais.setRemetente('Conv Dest Ext Admin')
+            DescargaMateriais.setDestinatario('Conv Dest Ext')
             DescargaMateriais.btnSalvar()
             // Util.urgencia('Urgentíssimo')
             // Util.setSexoRemetente('Da')

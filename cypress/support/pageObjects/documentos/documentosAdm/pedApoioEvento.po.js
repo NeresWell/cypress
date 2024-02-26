@@ -6,7 +6,7 @@ class PedApoioEvento {
         cy.contains('label', `${natureza}`).click()
     }
     setData() {
-        cy.get(elApEvento.ELEMENTS.setData).click().get('tbody > tr').contains('24').click()
+        cy.get(elApEvento.ELEMENTS.setData).click().get('tbody > tr').contains('26').click()
     }
     setHora(hora) {
         cy.get(elApEvento.ELEMENTS.setHora).type(hora)

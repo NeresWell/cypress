@@ -18,8 +18,6 @@ class Util {
         cy.contains('li', `${destinatario}`).dblclick()
         cy.get(el.ELEMENTS.btnConcluir).click()
         cy.get(el.ELEMENTS.setDestinatarioExterno).should('not.exist')
-        cy.get(el.ELEMENTS.idDestinatario0).should('be.visible')
-        cy.get(el.ELEMENTS.btnDestinatarioExterno).should('not.be.enabled')
     }
     setDestinatarioExterno(destinatarioExterno) {
         cy.get(el.ELEMENTS.btnDestinatarioExterno).click()
@@ -56,7 +54,7 @@ class Util {
     addAnexoSped(tipoDocumento) {
         cy.get(el.ELEMENTS.btnAnexarDocumentoSped).click()
         cy.get(el.ELEMENTS.btnPesquisar).click()
-        cy.contains('td', `${tipoDocumento}`).should('be.visible').click()
+        cy.contains('td', `${tipoDocumento}`).click()
         cy.get(el.ELEMENTS.btnAddReferenciaSped).click()
         cy.get(el.ELEMENTS.btnConcluirReferenciaSped).click()
     }

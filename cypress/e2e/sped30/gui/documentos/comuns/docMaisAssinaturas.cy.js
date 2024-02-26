@@ -1,6 +1,6 @@
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
-import DocMaisAssinaturas from '../../../support/pageObjects/documentos/documentosComuns/docMaisAssinaturas.po'
+import Perfil from '../../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../../support/pageObjects/utils/utils.po'
+import DocMaisAssinaturas from '../../../../../support/pageObjects/documentos/documentosComuns/docMaisAssinaturas.po'
 
 Cypress._.times(1, () => {
     describe('Redigir Doc 2+ Assinaturas', () => {
@@ -19,12 +19,12 @@ Cypress._.times(1, () => {
             cy.redigirDocumentoEB('Doc. 2+ Assinaturas')
             DocMaisAssinaturas.setTipoDocumento('Processo')
             Util.addAssunto('Doc 2+ Assinaturas Validação')
-            Util.setTemporalidade('001')
             Util.addAnexoSped('DIEx')
             cy.anexoExterno('example.json')
             cy.conteudo('Receeeeeeeeeeeeeba!')
-            DocMaisAssinaturas.setAssinantePrincipal('admin')
-            DocMaisAssinaturas.addDemaisAssinantes('Freixo')
+            Util.setTemporalidade('001')
+            DocMaisAssinaturas.setAssinantePrincipal('Conv Dest Ext Admin')
+            DocMaisAssinaturas.addDemaisAssinantes('Gabriel')
             Util.btnSalvar()
             // Util.urgencia('Urgentíssimo')
             // Util.setSexoRemetente('Da')

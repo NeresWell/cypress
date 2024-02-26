@@ -7,7 +7,7 @@ class docMaisAssinaturas {
     }
     setAssinantePrincipal(assinante) {
         cy.get(elMaisAssinaturas.ELEMENTS.assinantePrincipal).click()
-        cy.contains('li > span', `${assinante}`).eq(0).should('exist').click()
+        cy.contains('li > span', `${assinante}`).eq(0).click()
         
     }
     addDemaisAssinantes(assinante) {

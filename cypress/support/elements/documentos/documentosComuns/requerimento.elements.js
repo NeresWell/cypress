@@ -10,5 +10,5 @@ export const ELEMENTS = {
     nomeDestExtNaoCadastrado: 'input[id="txInput-1"]',
 
     // Requerimento
-    objeto: 'textarea[id="objeto"]'
+    objeto: '[id="assunto"]'
 }

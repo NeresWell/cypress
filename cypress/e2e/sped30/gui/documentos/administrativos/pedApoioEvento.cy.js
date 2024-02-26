@@ -1,7 +1,7 @@
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
-import Oficio from '../../../support/pageObjects/documentos/documentosComuns/oficio.po'
-import PedApoioEvento from '../../../support/pageObjects/documentos/documentosAdm/pedApoioEvento.po'
+import Perfil from '../../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../../support/pageObjects/utils/utils.po'
+import Oficio from '../../../../../support/pageObjects/documentos/documentosComuns/oficio.po'
+import PedApoioEvento from '../../../../../support/pageObjects/documentos/documentosAdm/pedApoioEvento.po'
 
 Cypress._.times(1, () => {
     describe('Redigir Ped. de Apoio a Evento', () => {

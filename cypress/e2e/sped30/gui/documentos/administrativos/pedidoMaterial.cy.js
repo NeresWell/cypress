@@ -1,6 +1,6 @@
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
-import PedidoMaterial from '../../../support/pageObjects/documentos/documentosAdm/material.po'
+import Perfil from '../../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../../support/pageObjects/utils/utils.po'
+import PedidoMaterial from '../../../../../support/pageObjects/documentos/documentosAdm/material.po'
 
 Cypress._.times(1, () => {
     describe('Redigir Pedido de Material', () => {

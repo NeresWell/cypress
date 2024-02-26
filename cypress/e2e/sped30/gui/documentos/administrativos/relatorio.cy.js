@@ -1,7 +1,7 @@
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
-import Requerimento from '../../../support/pageObjects/documentos/documentosComuns/requerimento.po'
-import Relatorio from '../../../support/pageObjects/documentos/documentosAdm/relatorio.po'
+import Perfil from '../../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../../support/pageObjects/utils/utils.po'
+import Requerimento from '../../../../../support/pageObjects/documentos/documentosComuns/requerimento.po'
+import Relatorio from '../../../../../support/pageObjects/documentos/documentosAdm/relatorio.po'
 
 Cypress._.times(1, () => {
     describe('Redigir Relatório', () => {

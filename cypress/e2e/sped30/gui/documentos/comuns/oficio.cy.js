@@ -1,6 +1,6 @@
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
-import Oficio from '../../../support/pageObjects/documentos/documentosComuns/oficio.po'
+import Perfil from '../../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../../support/pageObjects/utils/utils.po'
+import Oficio from '../../../../../support/pageObjects/documentos/documentosComuns/oficio.po'
 
 Cypress._.times(1, () => {
     describe('Redigir Ofício', () => {

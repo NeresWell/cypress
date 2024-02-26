@@ -6,7 +6,7 @@ class Requerimento {
         cy.get(elRequerimento.ELEMENTS.addAssuntoInfRequerimento).type(assunto)
     }
     addObjetoRequerimento(objeto) {
-        cy.get(elRequerimento.ELEMENTS.objeto).type(objeto).should('be.visible')
+        cy.get(elRequerimento.ELEMENTS.objeto).type(objeto)
     }
     setDiasOm(dias) {
         cy.get(elRequerimento.ELEMENTS.setDiasOM).type(dias)

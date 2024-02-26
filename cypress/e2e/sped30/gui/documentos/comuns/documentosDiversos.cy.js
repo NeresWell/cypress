@@ -1,7 +1,7 @@
-import ProtocolarDocumentoExterno from '../../../support/pageObjects/documentos/inserirDocumentosNUP/protocolarDocExt.po'
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
-import DocMaisAssinaturas from '../../../support/pageObjects/documentos/documentosComuns/docMaisAssinaturas.po'
+import ProtocolarDocumentoExterno from '../../../../../support/pageObjects/documentos/inserirDocumentosNUP/protocolarDocExt.po'
+import Perfil from '../../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../../support/pageObjects/utils/utils.po'
+import DocMaisAssinaturas from '../../../../../support/pageObjects/documentos/documentosComuns/docMaisAssinaturas.po'
 
 Cypress._.times(1, () => {
     describe('Documentos Diversos', () => {
@@ -144,7 +144,7 @@ Cypress._.times(1, () => {
                 Util.setTemporalidade('001')
                 Util.addReferencia('Referência Adicionada')
                 cy.conteudo('Receeeeeeeeeeeeeba carai!')
-                DocMaisAssinaturas.setAssinantePrincipal('admin')
+                DocMaisAssinaturas.setAssinantePrincipal('Conv Dest Ext')
                 Util.btnSalvar()
                 // ProtocolarDocumentoExterno.tipoDocumento(tipo)
                 // ProtocolarDocumentoExterno.prioridade('Urgente')
@@ -164,7 +164,7 @@ Cypress._.times(1, () => {
             Util.setTemporalidade('001')
             Util.addReferencia('Referência Adicionada')
             cy.conteudo('Receeeeeeeeeeeeeba!')
-            DocMaisAssinaturas.setAssinantePrincipal('admin')
+            DocMaisAssinaturas.setAssinantePrincipal('Conv Dest Ext')
             Util.btnSalvar()
         })
     })
