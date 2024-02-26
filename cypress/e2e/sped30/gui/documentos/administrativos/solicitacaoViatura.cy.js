@@ -1,8 +1,8 @@
-import Perfil from '../../../support/pageObjects/perfis/perfil.po'
-import Util from '../../../support/pageObjects/utils/utils.po'
-import SolicitacaoViatura from '../../../support/pageObjects/documentos/documentosAdm/solicitacaoViatura.po'
-import PedidoMaterial from '../../../support/pageObjects/documentos/documentosAdm/material.po'
-import PassagensDiarias from '../../../support/pageObjects/documentos/documentosAdm/passagensDiarias.po'
+import Perfil from '../../../../support/pageObjects/perfis/perfil.po'
+import Util from '../../../../support/pageObjects/utils/utils.po'
+import SolicitacaoViatura from '../../../../support/pageObjects/documentos/documentosAdm/solicitacaoViatura.po'
+import PedidoMaterial from '../../../../support/pageObjects/documentos/documentosAdm/material.po'
+import PassagensDiarias from '../../../../support/pageObjects/documentos/documentosAdm/passagensDiarias.po'
 
 Cypress._.times(1, () => {
     describe('Redigir Solicitação de Viatura', () => {

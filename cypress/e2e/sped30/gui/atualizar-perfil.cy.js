@@ -10,6 +10,6 @@ describe('Logout', () => {
         cy.contains('span', 'Atualizar Cadastro').click()
         cy.get('[name="nomeCompleto"]').clear().type(faker.internet.userName())
         cy.get('[id="salvar"]').click()
-        cy.clock()
+        cy.get('[id="ui-dialog-57-label"] p-header').should('not.be.visible')
     })
 })

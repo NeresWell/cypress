@@ -1,5 +1,5 @@
-import Utils from '../../support/pageObjects/utils/utils.po';
-import Processo from '../../support/pageObjects/processos/criar-processo.po';
+import Utils from '../../../support/pageObjects/utils/utils.po';
+import Processo from '../../../support/pageObjects/processos/criar-processo.po';
 import { faker } from '@faker-js/faker';
 
 describe('Módulo Processos', () => {
